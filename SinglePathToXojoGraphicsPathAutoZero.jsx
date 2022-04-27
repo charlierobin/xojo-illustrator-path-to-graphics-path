@@ -25,6 +25,9 @@
 	
 	var xojo = "";
 	
+	var xOffset = selectedObject.geometricBounds[ 0 ];
+	var yOffset = selectedObject.geometricBounds[ 1 ];
+	
 	var previousP = null;
 	
 	var firstP = selectedObject.pathPoints[ 0 ];
@@ -37,7 +40,7 @@
 		{
 			xojo = "p.MoveToPoint( ";
 			
-			xojo = xojo + p.anchor[ 0 ] + ", " + ( - p.anchor[ 1 ] );
+			xojo = xojo + ( p.anchor[ 0 ] - xOffset ) + ", " + ( - p.anchor[ 1 ] + yOffset );
 			
 			xojo = xojo + " )" + "\r" + "\r";
 		}
@@ -45,15 +48,15 @@
 		{
 			xojo = xojo + "p.AddCurveToPoint( ";
 			
-			xojo = xojo + previousP.rightDirection[ 0 ] + ", " + ( - previousP.rightDirection[ 1 ] );
+			xojo = xojo + ( previousP.rightDirection[ 0 ] - xOffset ) + ", " + ( - previousP.rightDirection[ 1 ] + yOffset );
 			
 			xojo = xojo + ", ";
 			
-			xojo = xojo + p.leftDirection[ 0 ] + ", " + ( - p.leftDirection[ 1 ] );
+			xojo = xojo + ( p.leftDirection[ 0 ] - xOffset ) + ", " + ( - p.leftDirection[ 1 ] + yOffset );
 			
 			xojo = xojo + ", ";
 			
-			xojo = xojo + p.anchor[ 0 ] + ", " + ( - p.anchor[ 1 ] );
+			xojo = xojo + ( p.anchor[ 0 ] - xOffset ) + ", " + ( - p.anchor[ 1 ] + yOffset );
 			
 			xojo = xojo + " )" + "\r";
 		}
@@ -64,15 +67,15 @@
 	
 	xojo = xojo + "p.AddCurveToPoint( ";
 	
-	xojo = xojo + previousP.rightDirection[ 0 ] + ", " + ( - previousP.rightDirection[ 1 ] );
+	xojo = xojo + ( previousP.rightDirection[ 0 ] - xOffset ) + ", " + ( - previousP.rightDirection[ 1 ] + yOffset );
 	
 	xojo = xojo + ", ";
 	
-	xojo = xojo + firstP.leftDirection[ 0 ] + ", " + ( - firstP.leftDirection[ 1 ] );
+	xojo = xojo + ( firstP.leftDirection[ 0 ] - xOffset ) + ", " + ( - firstP.leftDirection[ 1 ] + yOffset );
 	
 	xojo = xojo + ", ";
 	
-	xojo = xojo + firstP.anchor[ 0 ] + ", " + ( - firstP.anchor[ 1 ] );
+	xojo = xojo + ( firstP.anchor[ 0 ] - xOffset ) + ", " + ( - firstP.anchor[ 1 ] + yOffset );
 	
 	xojo = xojo + " )" + "\r";
 	
@@ -81,7 +84,6 @@
 	
 	xojoCodeTextFrame.position = [ 0, 0 ];
 	
-	xojoCodeTextFrame.contents = xojo;
-
+	xojoCodeTextFrame.contents = xojo;	
+	
 })();
-
