@@ -29,7 +29,7 @@
 	
 	var firstP = selectedObject.pathPoints[ 0 ];
 	
-	for( var i = 0; i < selectedObject.pathPoints.length; i++ )
+	for ( var i = 0; i < selectedObject.pathPoints.length; i++ )
 	{
 		p = selectedObject.pathPoints[ i ];
 		
