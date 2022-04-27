@@ -6,7 +6,7 @@ The JSX script needs to be installed into your appropriate Illustrator scripts d
 
 On my Mac, I put them into:
 
-`/Volumes/external/Applications/Adobe Illustrator 2022/Presets/Scripts`
+`/Applications/Adobe Illustrator 2022/Presets/Scripts`
 
 (You might find some localisation directories within the Presets directory, so you will need to choose the appropriate one for your system setup.)
 
