@@ -12,11 +12,11 @@ On my Mac, I put them into:
 
 Illustrator should find the script the next time you launch it. (Check under the `File` ▸ `Scripts` menu.)
 
-The script assumes that your Illustrator artwork is setup with the origin matching that of Xojo’s Graphics class, ie: the 0,0 of the rulers is to the upper left of the path you are working with.
+The script assumes that your Illustrator artwork is setup with the origin matching that of Xojo’s Graphics class, ie: the `0,0` of the rulers is to the upper left of the path you are working with.
 
-**A common mistake is not having the Illustrator ruler origin at the wrong point, so the generated points are then drawn offscreen in the Xojo graphics environment.**
+**A common mistake is having the Illustrator ruler origin at the wrong point, so the generated points are then drawn offscreen in the Xojo graphics environment.**
 
-You’ll find that open paths have a final AddCurveToPoint which closes the path, so you need to delete that line if you want the path to remain open in Xojo.
+You’ll find that open paths have a final `AddCurveToPoint` which closes the path, so you need to delete that line if you want the path to remain open in Xojo.
 
 https://ai-scripting.docsforadobe.dev/scriptingJavascript/yourFirstScript.html
 
