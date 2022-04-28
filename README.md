@@ -1,5 +1,24 @@
 # Adobe Illustrator Paths ▸ Xojo GraphicsPath commands
  
+I cleared up the code a little, moved some common functions into a shared library file, and added some (limited) supported for multiple selected paths, together with auto-zero versions
+which look at the bounding boxes of the selected paths and automatically offset the resulting points/control points so that the object is drawn at `0,0` (when copied/pasted into Xojo).
+
+`MultiplePathsToSingleXojoGraphicsPath` takes multiple paths and puts them all into a single GraphicsPath `p`.
+
+`MultiplePathsToXojoGraphicsPaths` takes multiple paths and generates a GraphicsPath for each, named after the object name in Illustrator (if possible).
+
+`MultiplePathsToXojoGraphicsPathsAutoZero` is the same as above, but auto-zeroes each path so that they all draw at `0,0`.
+
+(In other words, multiple paths from `MultiplePathsToSingleXojoGraphicsPath` and `MultiplePathsToXojoGraphicsPaths` will keep their relative  positions to each other, but paths from `MultiplePathsToXojoGraphicsPathsAutoZero` will not.)
+
+`SinglePathToXojoGraphicsPath` takes a single path, puts it into a single path `p`. (This is closest to the original script described below.)
+
+`SinglePathToXojoGraphicsPathAutoZero` takes and outputs a single path, as above, but auto-zeros the path origin.
+
+**(There is a little inconsistency with whether or not the provided code includes the declaration for the GraphicsPath variable, as all of these scripts were grown organically, ie: depending on how I was using them at the time. So sometimes there is a var declare included, sometimes not, when I was just pasting the generated code after my own declares.)**
+
+### Original README
+
 Create Xojo GraphicsPath-friendly methods for any single selected path in Adobe Illustrator.
 
 The JSX script needs to be installed into your appropriate Illustrator scripts directory.
