@@ -38,20 +38,22 @@ function convertPathPoints( path, xOffset, yOffset, instanceName )
 		previousP = p;
 	}
 	
-	
-	xojo = xojo + instanceName + ".AddCurveToPoint( ";
-	
-	xojo = xojo + ( previousP.rightDirection[ 0 ] - xOffset ) + ", " + ( - previousP.rightDirection[ 1 ] + yOffset );
-	
-	xojo = xojo + ", ";
-	
-	xojo = xojo + ( firstP.leftDirection[ 0 ] - xOffset ) + ", " + ( - firstP.leftDirection[ 1 ] + yOffset );
-	
-	xojo = xojo + ", ";
-	
-	xojo = xojo + ( firstP.anchor[ 0 ] - xOffset ) + ", " + ( - firstP.anchor[ 1 ] + yOffset );
-	
-	xojo = xojo + " )" + "\r";
+	if ( path.closed )
+	{
+		xojo = xojo + instanceName + ".AddCurveToPoint( ";
+		
+		xojo = xojo + ( previousP.rightDirection[ 0 ] - xOffset ) + ", " + ( - previousP.rightDirection[ 1 ] + yOffset );
+		
+		xojo = xojo + ", ";
+		
+		xojo = xojo + ( firstP.leftDirection[ 0 ] - xOffset ) + ", " + ( - firstP.leftDirection[ 1 ] + yOffset );
+		
+		xojo = xojo + ", ";
+		
+		xojo = xojo + ( firstP.anchor[ 0 ] - xOffset ) + ", " + ( - firstP.anchor[ 1 ] + yOffset );
+		
+		xojo = xojo + " )" + "\r";
+	}
 	
 	return xojo;
 }
